@@ -1,0 +1,20 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../generated/client"
+  previewFeatures = ["deno"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model recipes {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  hello String
+}
+
+model users {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  hello String
+}
